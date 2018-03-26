@@ -1,0 +1,1 @@
+TIMIT_DUMMY-01 ./audio/eval09/english/confmtg/TIMIT_DUMMY-01/TIMIT_DUMMY-01_01.sph
