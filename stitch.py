@@ -3,11 +3,13 @@ import shutil
 import subprocess
 from pydub import AudioSegment
 
+
 class Stitchable(object):
         def __init__(self, filename, audio, length):
             self.filename = filename
             self.audio = audio
             self.length = length
+
 
 audiolist = []
 data = []
@@ -41,15 +43,13 @@ duration = 0
 with open(OUT+''+OUTNAME+'/'+OUTNAME+'.txt', 'w') as tf:
     for elem in data:
         start = duration
-        #print('Starting at %f' % (float(duration)))
-        #print('Inserting %s' % (elem.filename))
+
         outfile += elem.audio
         duration += elem.length
-        #print('Ending at %f' % (float(duration)))
-        #print('-'*10)
+
         end = duration
-        # 1144.181 1144.836 Subj-308
-        speaker = (elem.filename).split('_')[0]
+
+        speaker = elem.filename.split('_')[0]
         tf.write("%.3f %.3f %s\n"  % (start, end, speaker))
 
 exporthandle = OUTNAME+'_01.wav'
